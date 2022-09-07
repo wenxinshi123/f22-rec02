@@ -3,6 +3,8 @@ interface PolarPoint {
     angle: number,
     computeX: () => number
     computeY: () => number
+    getX: ()=> number
+    getY: ()=> number
 }
 
 function newPolarPoint (len: number, angle: number): PolarPoint {
@@ -16,6 +18,12 @@ function newPolarPoint (len: number, angle: number): PolarPoint {
 
         computeY: function (): number {
             return Math.round(len * Math.sin(angle))
+        },
+        getX: function(): number{
+            return this.computeX()
+        },
+        getY: function(): number{
+            return this.computeY()
         }
     }
 }
